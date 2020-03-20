@@ -12,3 +12,6 @@ resultExp1=$(( a + b * c ))
 
 #Compute second Expression uc3
 resultExp2=$(( a * b + c ))
+
+#Compute third Expression uc4
+resultExp3=$(( c + a / b ))
