@@ -8,14 +8,24 @@ read -p "Enter value for b : " b
 read -p "Enter value for c : " c
 
 #Compute  first Expression uc2
-resultExp1=$(( a + b * c ))
+resultExp1=`echo "scale=3; $a + $b * $c" | bc`
 
 #Compute second Expression uc3
-resultExp2=$(( a * b + c ))
+resultExp2=`echo "scale=3; $a * $b + $c" |bc`
 
 #Compute third Expression uc4
-resultExp3=$(( c + a / b ))
+resultExp3=`echo "scale=3; $c + $a / $b" | bc`
 
 #Compute fourth Expression uc5
-resultExp4=$(( a % b + c )) 
+resultExp4=`echo "scale=3; $a % $b + $c" | bc`
+
+# store result of Expression in Dictionary
+declare -A expResultDict
+expResultDict[exp1]=$resultExp1
+expResultDict[exp2]=$resultExp2
+expResultDict[exp3]=$resultExp3
+expResultDict[exp4]=$resultExp4
+
+echo "keys : ${!expResultDict[@]}"
+echo "value : ${expResultDict[@]}"
 
