@@ -26,6 +26,17 @@ expResultDict[exp2]=$resultExp2
 expResultDict[exp3]=$resultExp3
 expResultDict[exp4]=$resultExp4
 
+echo "show Dictionary"
 echo "keys : ${!expResultDict[@]}"
 echo "value : ${expResultDict[@]}"
 
+#store the dictionary value into array
+index=0
+for result in ${expResultDict[@]}
+do
+	expResultArray[((index))]=$result
+	((index++))
+
+done
+
+echo "Array" ${expResultArray[@]}
